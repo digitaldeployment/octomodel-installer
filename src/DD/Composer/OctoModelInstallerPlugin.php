@@ -6,6 +6,9 @@ use Composer\Composer;
 use Composer\IO\IOInterface;
 use Composer\Plugin\PluginInterface;
 
+/**
+ * Composer plugin to set up our installer.
+ */
 class OctoModelInstallerPlugin implements PluginInterface {
 
   /**

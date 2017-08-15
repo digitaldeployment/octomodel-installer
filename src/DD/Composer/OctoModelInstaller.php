@@ -5,6 +5,12 @@ namespace DD\Composer;
 use Composer\Package\PackageInterface;
 use Composer\Installer\LibraryInstaller;
 
+/**
+ * Composer installer for the Drupal 8 Standard Model.
+ *
+ * Adapted from the installer paths in Acquia's Lighting:
+ * https://github.com/acquia/lightning-project/blob/8.2.x/composer.json.
+ */
 class OctoModelInstaller extends LibraryInstaller {
 
   private $pathsByType = array(
@@ -22,8 +28,9 @@ class OctoModelInstaller extends LibraryInstaller {
    * {@inheritDoc}
    */
   public function getInstallPath(PackageInterface $package) {
-    $packageType = $package->getType();
-    return $this->pathsByType[$packageType];
+    $type = $package->getType();
+    $name = $this->basenameForPackage($package);
+    return str_replace('{$name}', $name, $this->pathsByType[$type]);
   }
 
   /**
@@ -31,6 +38,29 @@ class OctoModelInstaller extends LibraryInstaller {
    */
   public function supports($packageType) {
     return isset($this->pathsByType[$packageType]);
+  }
+
+  /**
+   * Determine the basename of the given package.
+   *
+   * For example, for drupal/token, returns 'token'.
+   *
+   * @param Composer\Package\PackageInterface $package
+   *   The package.
+   *
+   * @return string
+   *   The package basename.
+   */
+  private function basenameForPackage(PackageInterface $package) {
+    $prettyName = $package->getPrettyName();
+    if (strpos($prettyName, '/') !== FALSE) {
+      list(, $basename) = explode('/', $prettyName);
+    }
+    else {
+      $basename = $prettyName;
+    }
+
+    return $basename;
   }
 
 }

@@ -6,7 +6,8 @@
     "composer-plugin-api": "^1.1"
   },
   "require-dev": {
-    "composer/composer": "^1.5"
+    "composer/composer": "^1.5",
+    "drupal/coder": "^8.2"
   },
   "autoload": {
     "psr-4": {

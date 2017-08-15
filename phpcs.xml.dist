@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<ruleset name="digitaldeployment/octomodel-installer">
+  <file>./src/</file>
+  <rule ref="./vendor/drupal/coder/coder_sniffer/Drupal/">
+    <exclude name="Drupal.Commenting.DocComment.ShortFullStop" />
+    <exclude name="Drupal.Commenting.DocComment.ShortNotCapital" />
+  </rule>
+  <rule ref="./vendor/drupal/coder/coder_sniffer/DrupalPractice/" />
+</ruleset>
