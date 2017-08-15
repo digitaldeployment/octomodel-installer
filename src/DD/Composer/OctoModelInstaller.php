@@ -19,7 +19,7 @@ class OctoModelInstaller extends LibraryInstaller {
     'drupal-module' => 'www/modules/contrib/{$name}',
     'drupal-custom-module' => 'www/modules/custom/{$name}',
     'drupal-profile' => 'www/profiles/{$name}',
-    'drupal-theme' => 'www/themes/{$name}',
+    'drupal-theme' => 'www/themes/contrib/{$name}',
     'drupal-custom-theme' => 'www/themes/custom/{$name}',
     'drupal-drush' => 'drush/contrib/{$name}',
   );
