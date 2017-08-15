@@ -1,0 +1,19 @@
+{
+  "name": "digitaldeployment/octomodel-installer",
+  "description": "Composer plugin that installs Drupal packages in the desired locations.",
+  "type": "composer-plugin",
+  "require": {
+    "composer-plugin-api": "^1.1"
+  },
+  "require-dev": {
+    "composer/composer": "^1.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "DD\\Composer\\": "src/DD/Composer"
+    }
+  },
+  "extra": {
+    "class": "DD\\Composer\\OctoModelInstallerPlugin"
+  }
+}
