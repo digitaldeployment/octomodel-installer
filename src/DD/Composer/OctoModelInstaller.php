@@ -27,7 +27,28 @@ class OctoModelInstaller extends LibraryInstaller {
   /**
    * {@inheritDoc}
    */
+  protected function initializeVendorDir() {
+    // The vendor directory might still be used by packages supported by this
+    // installer, such as for autoload.php.
+    parent::initializeVendorDir();
+
+    // Proactively create all the directories where packages might get
+    // installed. Drupal actually relies on some of these directories existing,
+    // such as its testing bootstrap script.
+    foreach ($this->pathsByType as $path) {
+      $dir = dirname($path);
+      // Make sure we don't accidentally create directories with placeholders.
+      assert(strpos($dir, '$') === FALSE);
+      $this->filesystem->ensureDirectoryExists($dir);
+    }
+  }
+
+  /**
+   * {@inheritDoc}
+   */
   public function getInstallPath(PackageInterface $package) {
+    $this->initializeVendorDir();
+
     $type = $package->getType();
     $name = $this->basenameForPackage($package);
     return str_replace('{$name}', $name, $this->pathsByType[$type]);

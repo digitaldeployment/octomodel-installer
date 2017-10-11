@@ -21,4 +21,4 @@ jobs:
             - ./vendor
           key: v2-dependencies-{{ checksum "composer.json" }}
 
-      - run: vendor/bin/phpcs -p
+      - run: composer test
