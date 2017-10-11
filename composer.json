@@ -2,6 +2,7 @@
   "name": "digitaldeployment/octomodel-installer",
   "description": "Composer plugin that installs Drupal packages in the desired locations.",
   "type": "composer-plugin",
+  "license": "MIT",
   "require": {
     "composer-plugin-api": "^1.1"
   },
