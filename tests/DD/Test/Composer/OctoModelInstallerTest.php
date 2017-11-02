@@ -64,7 +64,7 @@ class OctoModelInstallerTest extends TestCase {
 
     // Assert the installer directories haven't been created yet at this point.
     $this->assertFileNotExists($this->rootDir . '/vendor');
-    $this->assertFileNotExists($this->rootDir . '/www/modules/contrib');
+    $this->assertFileNotExists($this->rootDir . '/web/modules/contrib');
 
     $package = $this->getMockBuilder('Composer\Package\Package')
       ->setConstructorArgs(array(md5(mt_rand()), '1.0.0.0', '1.0.0'))
@@ -82,15 +82,15 @@ class OctoModelInstallerTest extends TestCase {
     $this->dm
       ->expects($this->once())
       ->method('download')
-      ->with($package, 'www/modules/contrib/token');
+      ->with($package, 'web/modules/contrib/token');
 
     $installer->install($this->repository, $package);
 
     // Assert all installer directories have been created at this point,
     // including for package types we didn't install.
     $this->assertFileExists($this->rootDir . '/vendor');
-    $this->assertFileExists($this->rootDir . '/www/modules/contrib');
-    $this->assertFileExists($this->rootDir . '/www/themes/contrib');
+    $this->assertFileExists($this->rootDir . '/web/modules/contrib');
+    $this->assertFileExists($this->rootDir . '/web/themes/contrib');
   }
 
 }

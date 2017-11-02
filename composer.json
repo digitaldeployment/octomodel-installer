@@ -26,9 +26,7 @@
     "class": "DD\\Composer\\OctoModelInstallerPlugin"
   },
   "scripts": {
-    "test": [
-      "phpcs -p",
-      "phpunit"
-    ]
+    "lint": "phpcs -p",
+    "test": "phpunit"
   }
 }

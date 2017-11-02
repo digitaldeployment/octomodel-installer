@@ -14,13 +14,13 @@ use Composer\Installer\LibraryInstaller;
 class OctoModelInstaller extends LibraryInstaller {
 
   private $pathsByType = array(
-    'drupal-core' => 'www/core',
-    'drupal-library' => 'www/libraries/{$name}',
-    'drupal-module' => 'www/modules/contrib/{$name}',
-    'drupal-custom-module' => 'www/modules/custom/{$name}',
-    'drupal-profile' => 'www/profiles/{$name}',
-    'drupal-theme' => 'www/themes/contrib/{$name}',
-    'drupal-custom-theme' => 'www/themes/custom/{$name}',
+    'drupal-core' => 'web/core',
+    'drupal-library' => 'web/libraries/{$name}',
+    'drupal-module' => 'web/modules/contrib/{$name}',
+    'drupal-custom-module' => 'web/modules/custom/{$name}',
+    'drupal-profile' => 'web/profiles/{$name}',
+    'drupal-theme' => 'web/themes/contrib/{$name}',
+    'drupal-custom-theme' => 'web/themes/custom/{$name}',
     'drupal-drush' => 'drush/contrib/{$name}',
   );
 
